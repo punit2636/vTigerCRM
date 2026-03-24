@@ -15,8 +15,8 @@ import object_repository.VerifyOrgPage;
 
 public class OrgTest extends BaseUtility {
 
-	String name;
-	String phone;
+	private String name;
+	private String phone;
 	
 	@Test(priority = 1)
 	void createOrg() throws InterruptedException {

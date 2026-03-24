@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+//import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.support.ui.WebDriverWait;
@@ -42,10 +42,10 @@ public class BaseUtility {
 		
 		if (BROWSER.equals("chrome")) {
 			
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless=new"); // The magic line
-			options.addArguments("--window-size=1920,1080"); // Important for headless stability
-			driver = new ChromeDriver(options);
+			//ChromeOptions options = new ChromeOptions();
+			//options.addArguments("--headless=new"); // The magic line
+			//options.addArguments("--window-size=1920,1080"); // Important for headless stability
+			driver = new ChromeDriver();
 		
 		}
 		else if (BROWSER.equals("edge"))

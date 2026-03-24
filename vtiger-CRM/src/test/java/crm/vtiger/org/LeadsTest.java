@@ -12,13 +12,18 @@ import generic_utility.BaseUtility;
 
 public class LeadsTest extends BaseUtility {
 
+	public String ln;
+	
 	@Test(priority = 1)
 	void createLead() {
 		wd.eleToBeClickable(driver.findElement(By.linkText("Leads")));
 
 		wd.eleToBeClickable(driver.findElement(By.xpath("//img[@title='Create Lead...']")));
-
-		wd.eleToBeSeenWait(driver.findElement(By.name("lastname"))).sendKeys("kumar");
+		
+		ln = "kumar"+ju.ranNum();
+		
+		
+		wd.eleToBeSeenWait(driver.findElement(By.name("lastname"))).sendKeys(ln);
 
 		driver.findElement(By.name("company")).sendKeys("Qspiders");
 
@@ -40,7 +45,7 @@ public class LeadsTest extends BaseUtility {
 
 		wd.eleToBeClickable(driver.findElement(By.linkText("Leads")));
 
-		wd.eleToBeSeenWait(driver.findElement(By.name("search_text"))).sendKeys("kumar");
+		wd.eleToBeSeenWait(driver.findElement(By.name("search_text"))).sendKeys(ln);
 
 		Select drop = new Select(driver.findElement(By.id("bas_searchfield")));
 		drop.selectByVisibleText("Last Name");
@@ -48,7 +53,7 @@ public class LeadsTest extends BaseUtility {
 
 		Thread.sleep(1000);
 
-		wd.eleToBeClickable(driver.findElement(By.linkText("kumar")));
+		wd.eleToBeClickable(driver.findElement(By.linkText(ln)));
 
 		Thread.sleep(1000);
 
@@ -60,7 +65,7 @@ public class LeadsTest extends BaseUtility {
 
 		Thread.sleep(1000);
 
-		wd.eleToBeSeenWait(driver.findElement(By.name("search_text"))).sendKeys("kumar");
+		wd.eleToBeSeenWait(driver.findElement(By.name("search_text"))).sendKeys(ln);
 
 		Select dropped = new Select(driver.findElement(By.id("bas_searchfield")));
 		dropped.selectByVisibleText("Last Name");
@@ -68,7 +73,7 @@ public class LeadsTest extends BaseUtility {
 
 		Thread.sleep(1000);
 		
-		List<WebElement> leads = driver.findElements(By.linkText("kumar"));
+		List<WebElement> leads = driver.findElements(By.linkText(ln));
 		
 		if (leads.isEmpty()) {
 			System.out.println("lead deleted successfully");
